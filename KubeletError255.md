@@ -17,8 +17,7 @@ chick9    NotReady   <none>   5d1h   v1.14.0
 ```
 
 ## Solution
-The trouble shooting section of [this documentation]
-(https://opensource.ncsa.illinois.edu/confluence/display/~lambert8/Kubernetes) 
+The trouble shooting section of [this documentation](https://opensource.ncsa.illinois.edu/confluence/display/~lambert8/Kubernetes)
 revealed that the `kubelet` service should be restarted to 
 add chick9 back into the cluster.
 
