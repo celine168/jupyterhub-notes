@@ -69,3 +69,31 @@ awplus(config-if)# switchport access vlan 2
 The command `awplus# show vlan all` shows the configuration
 
 copy running-config startup-config
+
+
+Edit netplan config file
+
+192.168.1.1/24 is the management
+10.0.0.1/8 is the K8 network
+
+
+Fill in the kubernetes and management networks. 
+One of the interfaces will be connected to the Internet, for us it was enp1s0.
+Leave that as is in the config file.
+
+Kubernetes network: enp2s0
+Management network: enp3s0
+
+Then we follow: steps on rooster (i.e. commands to run on rooster to get netboot to work)
+from the bare-metal.md
+
+`sudo apt install policykit-1`
+for when I was restarting dhcp-server after modifying config file
+
+This doesn't work:
+`sudo apt install ifupdown`
+`sudo ifup wlan0`
+
+Then `sudo netplan
+
+
