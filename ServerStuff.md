@@ -39,6 +39,9 @@ in the new master called `tftpfiles`.
 
 I installed git and cloned the metalc repo. Also installed vim.
 
+http://192.168.1.1/gui/ showed a nice graphical interface of the switch.
+It needed Java and could only open on Internet Explorer though.
+
 In the network switch,
 ```
 screen /dev/ttyS0
