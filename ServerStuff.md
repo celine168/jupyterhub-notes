@@ -97,6 +97,20 @@ This doesn't work:
 `sudo apt install ifupdown`
 `sudo ifup wlan0`
 
-Then `sudo netplan
+Then `sudo netplan apply`
 
+To find entry for gateway4, do `ip route | grep default` and replace the IP address.
+I.e., 
+ip route gives
+```
+default via 128.120.136.1 dev enp2s0 proto static
+```
+The default gateway is the private IP address assigned to the router that is used to 
+communicate with the local network. It lets a device on one network communicate
+with devices on another (such as the Internet), i.e., it's a *gateway*.
+https://www.lifewire.com/what-is-a-default-gateway-817771
+https://www.lifewire.com/how-to-find-your-default-gateway-ip-address-2626072
 
+```
+gateway4: 128.120.136.1
+```
