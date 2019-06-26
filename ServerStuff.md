@@ -117,5 +117,5 @@ gateway4: 128.120.136.1
 
 https://netplan.io/reference Netplan reference
 
-
-
+I have come to the conclusion that the WiFi USB adapter is not compatible with 
+the Linux kernel. Plan on getting a new one.
