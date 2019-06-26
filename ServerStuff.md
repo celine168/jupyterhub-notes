@@ -114,3 +114,8 @@ https://www.lifewire.com/how-to-find-your-default-gateway-ip-address-2626072
 ```
 gateway4: 128.120.136.1
 ```
+
+https://netplan.io/reference Netplan reference
+
+
+
