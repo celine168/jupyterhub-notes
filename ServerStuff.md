@@ -124,7 +124,7 @@ So I got a new USB adapter.
 When you type ifconfig, there's a new interface that pops up.
 ```
 wlx9cefd5fd7ff9: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
-        ether <>  txqueuelen 1000  (Ethernet)
+        ether 9c:ef:d5:fd:7f:f9  txqueuelen 1000  (Ethernet)
         RX packets 0  bytes 0 (0.0 B)
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 0  bytes 0 (0.0 B)
@@ -176,6 +176,8 @@ to `enp1s0`.
 ```
 INTERFACESv4="enp1s0"
 ```
+This is the interface that the DHCP server serves DHCP requests to. I guess it's the management network
+because that's how all the nodes are connected to the master, so they get assigned IP addresses that way.
 
 It's not enp3s0 because I don't think I have enp3s0. Just doesn't show up on `ifconfig`.
 
