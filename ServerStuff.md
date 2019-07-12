@@ -141,7 +141,7 @@ are in the second post of that thread. I didn't know how to get dhclient3 to wor
 think I really needed it). 
 1. `iwconfig`: You should see a new interface pop up. Mine was called `wlx9cefd5fd7ff9`.
 1. `sudo iwlist wlx9cefd5fd7ff9 scan`: Find the network you want to use.
-1. `sudo iwconfig wlx9cefd5fd7ff9 essid <Network name you want to use>
+1. `sudo iwconfig wlx9cefd5fd7ff9 essid <Network name you want to use>`
 
 Also in `/etc/netplan/01-netcfg.yaml`, according to the 
 [netplan reference](https://netplan.io/examples#connecting-to-an-open-wireless-network)
