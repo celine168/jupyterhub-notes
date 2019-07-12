@@ -119,3 +119,66 @@ https://netplan.io/reference Netplan reference
 
 I have come to the conclusion that the WiFi USB adapter is not compatible with 
 the Linux kernel. Plan on getting a new one.
+
+So I got a new USB adapter.
+When you type ifconfig, there's a new interface that pops up.
+```
+wlx9cefd5fd7ff9: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether <>  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+
+I figured out how to download packages using a USB, thanks to 
+[Stack Overflow](https://askubuntu.com/questions/711890/installing-packages-from-usb-to-ubuntu-server-14-04).
+
+I downloaded the `wireless-tools` package.
+
+I used [these instructions](https://ubuntuforums.org/showthread.php?t=1106353) to connect to the WiFi. (instrs
+are in the second post of that thread. I didn't know how to get dhclient3 to work, but I don't 
+think I really needed it). 
+1. `iwconfig`: You should see a new interface pop up. Mine was called `wlx9cefd5fd7ff9`.
+1. `sudo iwlist wlx9cefd5fd7ff9 scan`: Find the network you want to use.
+1. `sudo iwconfig wlx9cefd5fd7ff9 essid <Network name you want to use>
+
+Also in `/etc/netplan/01-netcfg.yaml`, according to the 
+[netplan reference](https://netplan.io/examples#connecting-to-an-open-wireless-network)
+I added this:
+```
+wifis:
+  wlx9cefd5fd7ff9:
+    dhcp4: yes
+    access-points:
+      SVPMeterConnectWiFi: {}
+```
+
+`SVPMeterConnectWiFi` is the name of the open WiFi network I am connected to.
+
+Also, for the vlans, I added this to `/etc/netplan/01-netcfg.yaml`, according to the 
+[netplan reference](https://netplan.io/examples#attaching-vlans-to-network-interfaces)
+```
+vlans:
+  vlan1:
+    id: 1
+    link: enp1s0
+    addresses: ["192.168.1.1/24"]
+  
+  vlan2:
+    id: 2
+    link: enp2s0
+    addresses: ["10.0.0.1/8"]
+```
+
+So it turns out in `/etc/default/isc-dhcp-server`, I had to change b/c I made the management network 
+to `enp1s0`. 
+```
+INTERFACESv4="enp1s0"
+```
+
+It's not enp3s0 because I don't think I have enp3s0. Just doesn't show up on `ifconfig`.
+
+So now I can finally use the `ping` command and the wifi adapter lights up. The only problem is that
+when I ping, nothing comes back.
+
