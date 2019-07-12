@@ -184,3 +184,10 @@ It's not enp3s0 because I don't think I have enp3s0. Just doesn't show up on `if
 So now I can finally use the `ping` command and the wifi adapter lights up. The only problem is that
 when I ping, nothing comes back.
 
+
+...so I lied. misread the documentation. It's the kubernetes network that needs dhcp.
+```
+INTERFACESv4="enp2s0"
+```
+ok now ping doesn't really ping. well it doesn't give the ping error message.
+
