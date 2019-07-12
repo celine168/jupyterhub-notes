@@ -191,3 +191,14 @@ INTERFACESv4="enp2s0"
 ```
 ok now ping doesn't really ping. well it doesn't give the ping error message.
 
+So, if I don't enable dhcp4 on the wifi network, ping will not be recognized at all. 
+```
+wifis:
+  wlx9cefd5fd7ff9:
+    dhcp4: yes
+``` 
+so make sure the above is correct.
+Once I changed dhcp4 to `no`, then back to `yes`, it didn't automatically recognize my wifi
+network anymore, which is interesting. But if I restart the computer,
+it will automatically connect to it. Looks like netplan is working (at least somewhat)!
+
