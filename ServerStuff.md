@@ -202,3 +202,8 @@ Once I changed dhcp4 to `no`, then back to `yes`, it didn't automatically recogn
 network anymore, which is interesting. But if I restart the computer,
 it will automatically connect to it. Looks like netplan is working (at least somewhat)!
 
+WiFi now works!
+Notes: disable dhcp on all interfaces.
+No gateway on enp2s0 (the Kubernetes network interface)
+
+
