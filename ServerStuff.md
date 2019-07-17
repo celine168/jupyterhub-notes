@@ -206,4 +206,12 @@ WiFi now works!
 Notes: disable dhcp on all interfaces.
 No gateway on enp2s0 (the Kubernetes network interface)
 
+Accidentally kicked someone off my wifi network, so that was funny.
+`enp1s0: [192.168.1.30/24]` when connecting to a private, make sure that
+you are using an IP address that no one else in your network is using. I used a subnet (192.168.1.X)
+which I knew that no one else should be on. So I specified this in netplan 
+under addresses under the wifi network.
+I guess: consider the wifi network as the public network.
+
+
 
